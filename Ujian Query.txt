@@ -1,0 +1,11 @@
+No.1
+SELECT country.Name, country.Region, country.Population, countrylanguage.Language FROM country INNER JOIN countrylanguage ON country.Code = countrylanguage.CountryCode WHERE Population > (SELECT AVG(Population) FROM country);
+
+No.2
+SELECT city.Name, city.District, city.Population, country.Name FROM city INNER JOIN country ON city.CountryCode = country.Code WHERE city.Population > (SELECT AVG(Population) FROM city);
+
+No.3
+SELECT Name, Region, Population FROM country WHERE IndepYear IS NULL ;
+
+No.4
+SELECT Region, COUNT(Name) AS Total_Country FROM country GROUP BY Region HAVING COUNT(Name) > 5;

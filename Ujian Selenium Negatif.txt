@@ -1,0 +1,49 @@
+package com.juaracoding.Ujian;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class UjianSeleniumNegatif {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		System.setProperty("webdriver.chromedriver", "C:\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+
+		driver.get("https://demoqa.com/webtables/");
+		driver.manage().window().maximize();
+		
+		WebElement add = driver.findElement(By.id("addNewRecordButton"));
+		add.click();
+		
+		WebElement firstname = driver.findElement(By.id("firstName"));
+		firstname.sendKeys("Dian");
+		
+		WebElement lastname = driver.findElement(By.id("lastName"));
+		lastname.sendKeys("Agus");
+		
+		WebElement useremail = driver.findElement(By.id("userEmail"));
+		useremail.sendKeys("gusdian.pr@gmail.com");
+		
+		WebElement Age = driver.findElement(By.id("age"));
+		Age.sendKeys("25");
+		
+		WebElement Salary = driver.findElement(By.id("salary"));
+		Salary.sendKeys("-5500");
+		
+		WebElement Department = driver.findElement(By.id("department"));
+		Department.sendKeys("IT");
+		
+		WebDriverWait wait = new WebDriverWait(driver,10);
+		WebElement submit = driver.findElement(By.id("submit"));
+		wait.until(ExpectedConditions.elementToBeClickable(submit));
+		submit.click();
+		
+	}
+
+}
